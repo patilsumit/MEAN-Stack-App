@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style>
+          body {
+              width: 80%;
+              margin-left: 10%;
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-size: 1.2rem;
+              line-height: 2rem;
+          }
+  
+          /*p {
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-size: 1.2rem;
+              line-height: 2rem;
+          }*/
+  
+          h1 {
+              text-align: center;
+              font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
+              margin-top: 10;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              /* padding: 0; */
+              color: #8d8009;
+              border-top: solid #e7ce00 medium;
+              border-bottom: solid #e7ce00 thin;
+              /*border-bottom: dotted #e7ce00 thin;*/
+          }
+  
+          h2 {
+              /* font-family: "Times New Roman", "MS Serif", "New York", serif; */
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-weight: normal;
+              font-size: 20px;
+              /* font-size: 1.2em; */
+          }
+  
+          em {
+              color: brown;
+          }
+  
+          code {
+              background: #f4f4f4;
+              border: 1px solid #ddd;
+              /* border-left: 3px solid #f36d33; */
+              border-left: 5px solid #c25222;
+              color: #666;
+              page-break-inside: avoid;
+              font-family: monospace;
+              font-size: 15px;
+              line-height: 1.6;
+              margin-bottom: 1.6em;
+              max-width: 100%;
+              overflow: auto;
+              padding: 1em 1.5em;
+              display: block;
+              word-wrap: break-word;
+          }
+      </style>
+  <style>
+          body {
+              width: 80%;
+              margin-left: 10%;
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-size: 1.2rem;
+              line-height: 2rem;
+          }
+  
+          /*p {
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-size: 1.2rem;
+              line-height: 2rem;
+          }*/
+  
+          h1 {
+              text-align: center;
+              font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
+              margin-top: 10;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              /* padding: 0; */
+              color: #8d8009;
+              border-top: solid #e7ce00 medium;
+              border-bottom: solid #e7ce00 thin;
+              /*border-bottom: dotted #e7ce00 thin;*/
+          }
+  
+          h2 {
+              /* font-family: "Times New Roman", "MS Serif", "New York", serif; */
+              font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+              font-weight: normal;
+              font-size: 20px;
+              /* font-size: 1.2em; */
+          }
+  
+          em {
+              color: brown;
+          }
+  
+          code {
+              background: #f4f4f4;
+              border: 1px solid #ddd;
+              /* border-left: 3px solid #f36d33; */
+              border-left: 5px solid #c25222;
+              color: #666;
+              page-break-inside: avoid;
+              font-family: monospace;
+              font-size: 15px;
+              line-height: 1.6;
+              margin-bottom: 1.6em;
+              max-width: 100%;
+              overflow: auto;
+              padding: 1em 1.5em;
+              display: block;
+              word-wrap: break-word;
+          }
+      </style>
+</head>
+<body>
+<h1 id="meanappintegrated">MeanAppIntegrated</h1>
+<p>This is a project build using MEAN stack. The front-end is developed using Angular. Backened used node.js, express and mongoose (MongoDB)</p>
+<h1 id="build">Build</h1>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <em>dist/</em> directory. Use the <em>--prod</em> flag for a production build.</p>
+<p>Note: Only angular files will get stored in dist.</p>
+<p>To install npm packages run <code>npm install</code></p>
+<h1 id="development-server">Development server</h1>
+<p>Run <code>node server/index.js</code> to start the node application. Navigate to <code>http://localhost:5000/</code></p>
+<h1 id="directory-structure">Directory Structure</h1>
+<p>The backend node/express application contents are stored in <em>server</em> directory.</p>
+<p>The Angular files are in <em>src</em> directory</p>
+<p><em>package.json</em> is shared by both angular and express.</p>
+<h1 id="integration">Integration</h1>
+<p>Express application provides course rest APIs. The url is <strong>/api/courses</strong></p>
+<p>Angular uses http methods to access the rest apis.</p>
+<p>Angular files bundled in dist folder are served as static files by using below line in express code (<em>server/index.js</em>):
+<code>app.use(express.static('dist/HttpServices'));</code></p>
+</body>
+</html>

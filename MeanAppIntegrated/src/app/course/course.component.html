@@ -1,0 +1,106 @@
+<div class="container-fluid">
+
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+      <button class="btn btn-dark mb-2" (click)="showForm = !showForm">
+        Add Course
+      </button>
+    </div>
+    </div>
+    <div class="offset-md-2 col-md-8">
+      <div class="card card-body mb-3" *ngIf="showForm">
+        <h2>
+          Add Course
+        </h2>
+        <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+          <!-- #coursename="ngModel" is a shortcut for
+           naming the input item
+          required and minlength is used for validation
+      -->
+
+          <div class="form-group">
+            <label>Course Name</label>
+
+            <input type="text" class="form-control" name="name" [(ngModel)]="course.name" [ngClass]="{'is-invalid': coursename.errors && coursename.touched}"
+              #coursename="ngModel" required minlength="3">
+
+            <div [hidden]="!coursename.errors?.required" class="invalid-feedback">
+              Name is required
+            </div>
+            <div [hidden]="!coursename.errors?.minlength" class="invalid-feedback">
+              Minimum 3 characters required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" name="author" [(ngModel)]="course.author" [ngClass]="{'is-invalid': authorName.errors && authorName.touched}"
+              #authorName="ngModel" required minlength="2">
+
+            <div [hidden]="!authorName.errors?.required" class="invalid-feedback">
+              Author is required
+            </div>
+            <div [hidden]="!authorName.errors?.minlength" class="invalid-feedback">
+              Minimum 2 characters required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+
+            <input type="text" class="form-control" name="price" [(ngModel)]="course.price" [ngClass]="{'is-invalid': priceval.errors && priceval.touched}"
+              #priceval="ngModel">
+             
+          </div>
+
+
+          <!--We can use ngClass for class binding-->
+          <button [disabled]="!courseForm.form.valid" class="btn btn-default btn-block mb-3" [ngClass]="currentClasses">
+            Add New Course
+          </button>
+        </form>
+      </div>
+
+      <br>
+
+
+      <h1 style="text-align:center">Course List</h1>
+
+      <ul class="list-unstyled" *ngIf="loaded && courses.length > 0">
+        <!-- Use nfFor directive to loop through an array of courses -->
+        <li class="card card-body mb-2" *ngFor="let course of courses" [class.bg-light]="course.isActive">
+          <h3>{{course.name}}
+            <small>
+              <button class="btn btn-dark btn-sm" (click)="course.hide = !course.hide">
+                <i [ngClass]="course.hide ? 'fa fa-minus' : 'fa fa-plus'"></i>
+                <!-- Toggle -->
+              </button>
+            </small>
+          </h3>
+          <ul class="list-group" *ngIf="course.hide">
+            <li class="list-group-item">
+              Author: {{course.author}}
+            </li>
+            <li class="list-group-item">
+              Date: {{course.date | date}}
+            </li>
+            <li class="list-group-item">
+              Price: {{course.price}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+      <!-- <ng-template #nocourses><h4>No courses Found</h4></ng-template> -->
+
+      <h4 *ngIf="!loaded">Loading courses...</h4>
+      <h4 *ngIf="loaded && courses.length == 0">No courses Found</h4>
+
+    </div>
+  </div>
+</div>
